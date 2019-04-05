@@ -1,0 +1,9 @@
+<a role="button" class="btn btn-primary"(click)="reset()">reset</a>
+
+<h2>Sticker {{userService.stickerIndex + 1}} of 6</h2>
+
+<p>
+	{{userService.currentSticker.presentation}} {{userService.currentSticker.aggregation}} {{userService.currentSticker.context}} {{userService.currentSticker.scenario}} {{userService.currentSticker.style}} {{userService.currentSticker.domain}} {{userService.currentSticker.role}}
+</p>
+
+<a role="button" class="btn btn-primary"(click)="nextSticker()">next</a>

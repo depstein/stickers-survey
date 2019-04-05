@@ -1,0 +1,16 @@
+<p>
+  consent-page works!
+</p>
+<form #selectForm="ngForm" (ngSubmit)="onSubmit(selectForm)">
+  <div class="form-group">
+    <label for="domain">Pick a data domain</label>
+    <select class="form-control" id="domain" name="domain" [(ngModel)]="domain" required>
+    	<option *ngFor="let d of domains" [ngValue]="d">{{d}}</option>
+    </select>
+    <label for="role">Pick a role</label>
+    <select class="form-control" id="role" name="role" [(ngModel)]="role" required>
+    	<option *ngFor="let r of roles" [ngValue]="r">{{r}}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Start the survey</button>
+</form>
