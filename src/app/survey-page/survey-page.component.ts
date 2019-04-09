@@ -12,6 +12,7 @@ import {Response} from '../response';
 })
 export class SurveyPageComponent implements OnInit {
   atob:number;
+  atob_valid:boolean;
 
   constructor(private router:Router, private userService:UserService, private firebaseService:FirebaseService) { }
 
@@ -19,13 +20,21 @@ export class SurveyPageComponent implements OnInit {
   }
 
   nextSticker(surveyForm:NgForm) {
-    this.saveData();
-    this.resetLikerts();
-  	if(this.userService.stickerIndex < this.userService.stickers.length - 1) {
-  		this.userService.stickerIndex += 1;
-  	} else {
-  		this.router.navigate(['demographics']);
-  	}
+    if(this.dataValid()) {
+      this.saveData();
+      this.resetLikerts();
+      if(this.userService.stickerIndex < this.userService.stickers.length - 1) {
+        this.userService.stickerIndex += 1;
+      } else {
+        this.router.navigate(['demographics']);
+      }
+    }
+  }
+
+  dataValid():boolean {
+    //TODO: should a likert be able to check its own validity?
+    this.atob_valid = this.atob?true:false;
+    return this.atob_valid;
   }
 
   saveData() {
@@ -34,6 +43,7 @@ export class SurveyPageComponent implements OnInit {
 
   resetLikerts() {
     this.atob = undefined;
+    this.atob_valid = undefined;
   }
 
   resetUser() {

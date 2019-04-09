@@ -13,6 +13,8 @@ export class ConsentPageComponent implements OnInit {
 	domains:string[] = ['Physical Activity', 'Location', 'Music', 'Food'];
 	role:string;
 	roles:string[] = ['Sharer', 'Recipient'];
+  domain_valid:boolean;
+  role_valid:boolean;
 
   constructor(private router:Router, private userService:UserService) { }
 
@@ -26,8 +28,9 @@ export class ConsentPageComponent implements OnInit {
   		this.router.navigate(['survey']);
   	}
   	else {
-  		//TODO: show some error message...
-  		console.error('Form invalid')
+      this.domain_valid = this.domain ? true : false;
+      this.role_valid = this.role ? true : false;
+  		console.error('Form invalid');
   	}
   }
 

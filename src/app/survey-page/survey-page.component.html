@@ -9,12 +9,10 @@
 <form #surveyForm="ngForm" (ngSubmit)="nextSticker(surveyForm)">
 	<div class="row">
 		<div class="col">
-			<p>
-				{{userService.currentSticker.presentation}} {{userService.currentSticker.aggregation}} {{userService.currentSticker.context}} {{userService.currentSticker.scenario}} {{userService.currentSticker.style}} {{userService.currentSticker.domain}} {{userService.currentSticker.role}}
-			</p>
+			<app-sticker [condition]=userService.currentSticker></app-sticker>
 		</div>
 		<div class="col">
-			<app-likert low="AAAAA" high="BBBBB" name="atob" [points]=7 [(selected)]="atob"></app-likert>
+			<app-likert low="AAAAA" high="BBBBB" name="atob" [valid]="atob_valid" [points]=7 [(selected)]="atob"></app-likert>
 		</div>
 	</div>
 	<div class="row">

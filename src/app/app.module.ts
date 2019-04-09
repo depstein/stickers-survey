@@ -11,6 +11,7 @@ import { SurveyPageComponent } from './survey-page/survey-page.component';
 import { ConsentPageComponent } from './consent-page/consent-page.component';
 import { DemographicsPageComponent } from './demographics-page/demographics-page.component';
 import { LikertComponent } from './likert/likert.component';
+import { StickerComponent } from './sticker/sticker.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LikertComponent } from './likert/likert.component';
     SurveyPageComponent,
     ConsentPageComponent,
     DemographicsPageComponent,
-    LikertComponent
+    LikertComponent,
+    StickerComponent
   ],
   imports: [
     BrowserModule,

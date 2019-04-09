@@ -1,4 +1,7 @@
-.likert li {
-    float: left;
-    list-style-type: none;
+.is-invalid {
+	color: red;
+}
+
+.is-valid {
+	color: green;
 }

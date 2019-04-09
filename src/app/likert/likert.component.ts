@@ -10,6 +10,7 @@ export class LikertComponent implements OnInit {
 	@Input() high:string;
 	@Input() name:string;
 	@Input() points:number = 5;
+  @Input() valid:boolean;
 	values:number[];
 	@Input() selected:number;
   @Output() selectedChange = new EventEmitter();

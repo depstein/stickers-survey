@@ -1,5 +1,5 @@
-<ul class="likert">
-    <li>{{low}}</li>
-    <li *ngFor="let v of values"><input type="radio" name="{{name}}" value="{{v}}" [(ngModel)]="selected" (change)="onChange()"/></li>
-    <li>{{ high }}</li>
-</ul>
+<div class="form-check form-check-inline">
+    <label class="form-check-input position-static" [ngClass]="valid === true ? 'is-valid' : (valid === false) ? 'is-invalid' : ''" for="{{name}}_0">{{ low }}</label>
+    <input *ngFor="let v of values" class="form-check-input position-static" type="radio" name="{{name}}" id="{{name}}_{{v}}" value="{{v}}" [(ngModel)]="selected" (change)="onChange()"/>
+    <label class="form-check-input position-static" [ngClass]="valid === true ? 'is-valid' : (valid === false) ? 'is-invalid' : ''" for="{{name}}_{{points - 1}}">{{ high }}</label>
+</div>
