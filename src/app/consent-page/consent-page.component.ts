@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class ConsentPageComponent implements OnInit {
 	domain:string;
-	domains:string[] = ['Physical Activity', 'Location', 'Music', 'Food'];
+	domains:string[] = ['Activity', 'Location', 'Music', 'Food'];
 	role:string;
 	roles:string[] = ['Sharer', 'Recipient'];
   domain_valid:boolean;
