@@ -1,0 +1,16 @@
+export class Demographics {
+	score:number;
+	age:number;
+	gender:string;
+	months:string;
+	friends:string;
+
+	constructor() {
+	}
+
+	getData() {
+		const result = {};
+		Object.keys(this).map(key => result[key] = this[key]);
+		return result;
+	}
+}

@@ -14,6 +14,7 @@ import { LikertComponent } from './likert/likert.component';
 import { StickerComponent } from './sticker/sticker.component';
 import { SharerLikertsComponent } from './sharer-likerts/sharer-likerts.component';
 import { RecipientLikertsComponent } from './recipient-likerts/recipient-likerts.component';
+import { ThanksPageComponent } from './thanks-page/thanks-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RecipientLikertsComponent } from './recipient-likerts/recipient-likerts
     LikertComponent,
     StickerComponent,
     SharerLikertsComponent,
-    RecipientLikertsComponent
+    RecipientLikertsComponent,
+    ThanksPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,33 @@
 <p>
-  demographics-page works!
+  Your demographic information can help us characterize our participants. You may choose not to answer any question.
 </p>
+<form #demographicsForm="ngForm" (ngSubmit)="submit(demographicsForm)">
+	<div class="row">
+		<div class="col">
+			<p>
+				What is your Snapchat score? It appears beneath your name on the profile screen.
+				<img src="assets/snapchat_score.png" width="200px">
+				<input type="number" name="score" [(ngModel)]=demographics.score>
+			</p>
+			<p>
+				Roughly how long, in months, have you used Snapchat?
+				<input type="number" name="months" [(ngModel)]=demographics.months>
+			</p>
+			<p>
+				In a typical week, roughly how many people do you send Snaps to and/or receive Snaps from?
+				<input type="number" name="friends" [(ngModel)]=demographics.friends>
+			</p>
+			<p>
+				How old are you?
+				<input type="number" name="age" [(ngModel)]=demographics.age>
+			</p>
+			<p>
+				How do you identify your gender?
+				<input type="text" name="gender" [(ngModel)]=demographics.gender>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<button type="submit" class="btn btn-primary">Next</button>
+	</div>
+</form>
