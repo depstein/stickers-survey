@@ -8,6 +8,8 @@ import { Condition } from './condition';
   providedIn: 'root'
 })
 export class UserService {
+  static readonly ROLES:string[] = ['sharer', 'recipient'];
+  static readonly DOMAINS:string[] = ['activity', 'location', 'music', 'food'];
 	@LocalStorage() uid:string = generate();
 	@LocalStorage() role:string = undefined;
 	@LocalStorage() domain:string = undefined;
@@ -19,10 +21,16 @@ export class UserService {
   	//To ensure the same stickers are always selected, seed the rng according to the User ID
   	this.rng = alea(this.uid);
   	this.selectStickers();
+    this.selectDomainAndRole();
   }
 
   get currentSticker():Condition {
   	return this.stickers[this.stickerIndex];
+  }
+
+  selectDomainAndRole() {
+    this.role = UserService.ROLES[this.upTo(UserService.ROLES.length)];
+    this.domain = UserService.DOMAINS[this.upTo(UserService.DOMAINS.length)];
   }
 
   selectStickers() {
@@ -47,6 +55,7 @@ export class UserService {
   	//To ensure the same stickers are always selected, seed the rng according to the User ID
   	this.rng = alea(this.uid);
   	this.selectStickers();
+    this.selectDomainAndRole();
   	this.stickerIndex = 0;
   }
 

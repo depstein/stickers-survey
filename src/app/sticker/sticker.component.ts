@@ -89,9 +89,9 @@ export class StickerComponent implements OnInit {
 
   private get imageUrl():string {
   	if (this.condition.domain in StickerComponent.GeneratedSoFar && this.condition.style < StickerComponent.GeneratedSoFar[this.condition.domain]) {
-  		return 'assets/' + this.condition.domain.toLowerCase() + '/' + this.condition.presentation + '_' + this.condition.aggregation + '_' + this.condition.style + '.png';
+  		return 'assets/' + this.condition.domain + '/' + this.condition.presentation + '_' + this.condition.aggregation + '_' + this.condition.style + '.png';
   	} else if(this.condition.domain in StickerComponent.GeneratedSoFar) {
-  		return 'assets/' + this.condition.domain.toLowerCase() + '/' + this.condition.presentation + '_' + this.condition.aggregation + '_0.png';
+  		return 'assets/' + this.condition.domain + '/' + this.condition.presentation + '_' + this.condition.aggregation + '_0.png';
   	} else {
   		return 'assets/error.png';
   	}

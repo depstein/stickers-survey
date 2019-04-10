@@ -9,12 +9,9 @@ import { UserService } from '../user.service';
   styleUrls: ['./consent-page.component.css']
 })
 export class ConsentPageComponent implements OnInit {
-	domain:string;
-	domains:string[] = ['Activity', 'Location', 'Music', 'Food'];
-	role:string;
-	roles:string[] = ['Sharer', 'Recipient'];
-  domain_valid:boolean;
-  role_valid:boolean;
+  ageCheck:boolean;
+  snapCheck:boolean;
+  consentCheck:boolean;
 
   constructor(private router:Router, private userService:UserService) { }
 
@@ -22,16 +19,12 @@ export class ConsentPageComponent implements OnInit {
   }
 
   onSubmit(selectForm:NgForm) {
-  	if(selectForm.valid) {
-  		this.userService.domain = this.domain;
-  		this.userService.role = this.role;
-  		this.router.navigate(['survey']);
-  	}
-  	else {
-      this.domain_valid = this.domain ? true : false;
-      this.role_valid = this.role ? true : false;
-  		console.error('Form invalid');
-  	}
+    if(this.ageCheck && this.snapCheck && this.consentCheck) {
+      this.router.navigate(['survey']);
+    } else {
+      //They did not consent, are not old enough, or do not use Snapchat enough
+      this.router.navigate(['sorry']);
+    }
   }
 
 }

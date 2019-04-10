@@ -5,7 +5,7 @@
 	<div class="col">
 		<a role="button" class="btn btn-primary"(click)="resetUser()">reset</a>
 		<p>
-			As you are rating the Snap, imagine you are {{this.userService.role == "Sharer" ? "sending" : "receiving"}} it {{this.userService.role == "Sharer" ? "to" : "from"}} a close friend or family member on Snapchat.
+			As you are rating the Snap, imagine you are {{this.userService.role == "sharer" ? "sending" : "receiving"}} it {{this.userService.role == "sharer" ? "to" : "from"}} a close friend or family member on Snapchat.
 		</p>
 	</div>
 </div>
@@ -15,8 +15,8 @@
 			<app-sticker [condition]=userService.currentSticker></app-sticker>
 		</div>
 		<div class="col">
-			<app-sharer-likerts #sharerLikerts *ngIf="this.userService.role == 'Sharer'"></app-sharer-likerts>
-			<app-recipient-likerts #recipientLikerts *ngIf="this.userService.role == 'Recipient'"></app-recipient-likerts>
+			<app-sharer-likerts #sharerLikerts *ngIf="this.userService.role == 'sharer'"></app-sharer-likerts>
+			<app-recipient-likerts #recipientLikerts *ngIf="this.userService.role == 'recipient'"></app-recipient-likerts>
 		</div>
 	</div>
 	<div class="row">

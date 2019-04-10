@@ -4,6 +4,7 @@ export class Demographics {
 	gender:string;
 	months:string;
 	friends:string;
+	weekly:string;
 
 	constructor() {
 	}

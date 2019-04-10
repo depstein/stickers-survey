@@ -1,16 +1,50 @@
+<h2>University of California, Irvine</h2>
+<h3>Study Information Sheet</h3>
+<h4>Design and Evaluation of Data-Driven Stickers on Social Media</h4>
 <p>
-  Consent instructions...
+  <strong>Lead Researcher</strong>
+  Daniel Epstein, Ph.D.
+  Assistant Professor, Department of Informatics
+  949-824-4197, epstein@ics.uci.edu
 </p>
+<ul>
+  <li>Please read the information below and ask questions about anything that you do not understand.  A researcher listed above will be available to answer your questions.</li>
+  <li>You are being asked to participate in a research study. Participation in this study is voluntary.  You may choose to skip a question or a study procedure. You may refuse to participate or discontinue your involvement at any time without penalty or loss of benefits.  You are free to withdraw from this study at any time. <strong>If you decide to withdraw from this study you should notify the research team immediately.</strong></li>
+  <li>To participate in this study, you must be at least 18 years old and send or receive at least one Snap on Snapchat per week, on average.</li>
+  <li>We would like you to complete a survey to gather your feedback on the design of data-driven stickers on ephemeral social media content like Snapchat or Instagram Stories. The survey will last about 10 minutes.</li>
+  <li>Possible risks/discomforts associated with the study are a feeling that your privacy is being invaded, potential embarrassment or social stigma around social media use or impressions.</li>
+  <li>At a societal level, this research will inform the design of new social media features which aim to help people receive the kinds of emotional support they desire online.</li>
+  <li>All research data collected will be stored securely and confidentially in University-provided cloud storage (e.g., Google Drive). Audio recordings will be transcribed by an external provider and destroyed after data analysis.</li>
+  <li>Your information collected as part of this research will not be used or distributed for future research studies.</li>
+  <li>You will receive $2 via Amazon for your participation in this study.</li>
+  <li>Questions? If you have any comments, concerns, or questions regarding this study please contact the researchers listed at the top of this form.</li>
+  <li>If you have questions or concerns about your rights as a research participant, you can contact the UCI Institutional Review Board by phone, (949) 824-6662, by e-mail at <a href="mailto:IRB@research.uci.edu">IRB@research.uci.edu</a> or at 141 Innovation, Suite 250, Irvine, CA 92697.</li>
+</ul>
+<p><strong>What is an IRB?</strong> An Institutional Review Board (IRB) is a committee made up of scientists and non-scientists. The IRB’s role is to protect the rights and welfare of human subjects involved in research. The IRB also assures that the research complies with applicable regulations, laws, and institutional policies.</p>
+<p>
+  Please answer the following questions.
+</p>
+<!--Todo: get rid of all selection... assign randomly-->
 <form #selectForm="ngForm" (ngSubmit)="onSubmit(selectForm)">
   <div class="form-group">
-    <label for="domain">Pick a data domain</label>
-    <select class="form-control" [ngClass]="domain_valid === true ? 'is-valid' : (domain_valid === false) ? 'is-invalid' : ''" id="domain" name="domain" [(ngModel)]="domain" required>
-    	<option *ngFor="let d of domains" [ngValue]="d">{{d}}</option>
-    </select>
-    <label for="role">Pick a role</label>
-    <select class="form-control" [ngClass]="role_valid === true ? 'is-valid' : (role_valid === false) ? 'is-invalid' : ''" id="role" name="role" [(ngModel)]="role" required>
-    	<option *ngFor="let r of roles" [ngValue]="r">{{r}}</option>
-    </select>
+    <div class="form-check">
+      <input class="form-check-input" name="ageCheck" type="checkbox" value="" [(ngModel)]=ageCheck id="ageCheck">
+      <label class="form-check-label" for="ageCheck">
+        I am at least 18 years old.
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" name="snapCheck" type="checkbox" value="" [(ngModel)]=snapCheck id="snapCheck">
+      <label class="form-check-label" for="snapCheck">
+        I send or receive at least one Snap on Snapchat per week, on average.
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" name="consentCheck" type="checkbox" value="" [(ngModel)]=consentCheck id="consentCheck">
+      <label class="form-check-label" for="consentCheck">
+        I consent to taking part in this research study.
+      </label>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Start the survey</button>
 </form>
