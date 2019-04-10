@@ -1,6 +1,3 @@
-<p>
-  sharer-likerts works!
-</p>
 <app-likert #fun_ENT label="I find this Snap fun to send." name="fun_ENT" [(selected)]=scales.fun_ENT></app-likert>
 <app-likert #exciting_ENT label="I find this Snap exciting to send." name="exciting_ENT" [(selected)]=scales.exciting_ENT></app-likert>
 <app-likert #trust_PRIV label="I trust Snapchat with the information I included in this Snap." name="trust_PRIV" [(selected)]=scales.trust_PRIV></app-likert>
@@ -9,3 +6,7 @@
 <app-likert #might_USE label="I might send this Snap." name="might_USE" [(selected)]=scales.might_USE></app-likert>
 <app-likert #good_ATT label="I feel good about sending this Snap." name="good_ATT" [(selected)]=scales.good_ATT></app-likert>
 <app-likert #positive_ATT label="I feel positive about sending this Snap." name="positive_ATT" [(selected)]=scales.positive_ATT></app-likert>
+<div class="form-group">
+	<label for="reactionTextArea">How would you feel about sharing this Snap?</label>
+	<textarea class="form-control" [ngClass]=reactionValid id="reactionTextArea" [(ngModel)]=scales.reaction rows="3"></textarea>
+</div>

@@ -20,6 +20,10 @@ export class Scales {
 	//I feel positive about sending this Snap/responding to this Snap. (Lee)
 	positive_ATT:number;
 
+	//reaction, more qualitative
+	//either "How would you feel about sharing this Snap?" or "How would you react to seeing this Snap?"
+	reaction:string;
+
 	public Scales() {
 
 	}
