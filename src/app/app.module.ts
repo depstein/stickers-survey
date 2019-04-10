@@ -12,6 +12,8 @@ import { ConsentPageComponent } from './consent-page/consent-page.component';
 import { DemographicsPageComponent } from './demographics-page/demographics-page.component';
 import { LikertComponent } from './likert/likert.component';
 import { StickerComponent } from './sticker/sticker.component';
+import { SharerLikertsComponent } from './sharer-likerts/sharer-likerts.component';
+import { RecipientLikertsComponent } from './recipient-likerts/recipient-likerts.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { StickerComponent } from './sticker/sticker.component';
     ConsentPageComponent,
     DemographicsPageComponent,
     LikertComponent,
-    StickerComponent
+    StickerComponent,
+    SharerLikertsComponent,
+    RecipientLikertsComponent
   ],
   imports: [
     BrowserModule,

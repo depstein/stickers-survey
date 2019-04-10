@@ -1,31 +1,23 @@
 import { Condition } from './condition';
+import { Scales } from './scales';
 
 export class Response {
-	presentation:string;
-	aggregation:string;
-	context:string;
-	scenario:number;
-	style:number;
-	domain:string;
-	role:string;
+	condition:Condition;
+	scales:Scales;
 	uid:string;
-	atob:number;
 
-	constructor(condition:Condition, uid:string, atob:number) {
-		this.presentation = condition.presentation;
-		this.aggregation = condition.aggregation;
-		this.context = condition.context;
-		this.scenario = condition.scenario;
-		this.style = condition.style;
-		this.domain = condition.domain;
-		this.role = condition.role;
+	constructor(condition:Condition, scales:Scales, uid:string) {
+		this.condition = condition;
+		this.scales = scales;
 		this.uid = uid;
-		this.atob = atob;
 	}
 
 	public getData():object {
-		const result = {};
-		Object.keys(this).map(key => result[key] = this[key]);
+		const result = {'uid': this.uid};
+		Object.keys(this.scales).map(key => result[key] = this.scales[key]);
+		Object.keys(this.condition).map(key => result[key] = this.condition[key]);
+		//TODO: check that this works...
+		console.log(result);
 		return result;
 	}
 }

@@ -21,6 +21,7 @@ export class StickerComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    this.context = (<HTMLCanvasElement>this.canvas.nativeElement).getContext('2d');
     this.drawEverything();
   }
 
@@ -29,13 +30,14 @@ export class StickerComponent implements OnInit {
   }
 
   drawEverything() {
-    this.context = (<HTMLCanvasElement>this.canvas.nativeElement).getContext('2d');
-    this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-    this.drawBackground().then(() => {
-      this.drawScenario().then(() => {
-        this.drawSticker();
+    if(this.context) {
+      this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+      this.drawBackground().then(() => {
+        this.drawScenario().then(() => {
+          this.drawSticker();
+        });
       });
-    });
+    }
   }
 
   //Image onload is async, so use a promise so the background is always drawn first.

@@ -6,24 +6,29 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./likert.component.css']
 })
 export class LikertComponent implements OnInit {
-	@Input() low:string;
-	@Input() high:string;
+	@Input() label:string;
+  @Input() low:string = "Strongly Disagree";
+	@Input() high:string = "Strongly Agree";
 	@Input() name:string;
-	@Input() points:number = 5;
-  @Input() valid:boolean;
+	@Input() points:number = 7;
 	values:number[];
 	@Input() selected:number;
   @Output() selectedChange = new EventEmitter();
+  valid:boolean;
 
   constructor() {
   }
 
   ngOnInit() {
-    this.values = Array(this.points).fill(0).map((x, i)=> i);
+    this.values = Array(this.points).fill(0).map((x, i)=> i+1);
   }
 
   onChange() {
     this.selectedChange.emit(this.selected);
+  }
+
+  checkValid() {
+    this.valid = this.selected?true:false;
   }
 
 }

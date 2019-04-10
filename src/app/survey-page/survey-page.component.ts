@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UserService } from '../user.service';
 import { FirebaseService } from '../firebase.service';
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {Response} from '../response';
+import {SharerLikertsComponent} from '../sharer-likerts/sharer-likerts.component';
+import {RecipientLikertsComponent} from '../recipient-likerts/recipient-likerts.component';
 
 @Component({
   selector: 'app-survey-page',
@@ -11,12 +13,15 @@ import {Response} from '../response';
   styleUrls: ['./survey-page.component.css']
 })
 export class SurveyPageComponent implements OnInit {
-  atob:number;
-  atob_valid:boolean;
-
+  @ViewChild('sharerLikerts') sharerLikerts:SharerLikertsComponent;
+  @ViewChild('recipientLikerts') recipientLikerts:RecipientLikertsComponent;
+  
   constructor(private router:Router, private userService:UserService, private firebaseService:FirebaseService) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
   }
 
   nextSticker(surveyForm:NgForm) {
@@ -32,18 +37,29 @@ export class SurveyPageComponent implements OnInit {
   }
 
   dataValid():boolean {
-    //TODO: should a likert be able to check its own validity?
-    this.atob_valid = this.atob?true:false;
-    return this.atob_valid;
+    if(this.sharerLikerts) {
+      return this.sharerLikerts.isValid;
+    } else if(this.recipientLikerts) {
+      return this.recipientLikerts.isValid;
+    } else {
+      return false;
+    }
   }
 
   saveData() {
-    this.firebaseService.addResponse(new Response(this.userService.currentSticker, this.userService.uid, this.atob));
+    if(this.sharerLikerts) {
+      this.firebaseService.addResponse(new Response(this.userService.currentSticker, this.sharerLikerts.scales, this.userService.uid));
+    } else if(this.recipientLikerts) {
+      this.firebaseService.addResponse(new Response(this.userService.currentSticker, this.recipientLikerts.scales, this.userService.uid));
+    }
   }
 
   resetLikerts() {
-    this.atob = undefined;
-    this.atob_valid = undefined;
+    if(this.sharerLikerts) {
+      this.sharerLikerts.reset();
+    } else if(this.recipientLikerts) {
+      this.recipientLikerts.reset();
+    }
   }
 
   resetUser() {
