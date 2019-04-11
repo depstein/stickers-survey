@@ -16,6 +16,7 @@ import { SharerLikertsComponent } from './sharer-likerts/sharer-likerts.componen
 import { RecipientLikertsComponent } from './recipient-likerts/recipient-likerts.component';
 import { ThanksPageComponent } from './thanks-page/thanks-page.component';
 import { SorryPageComponent } from './sorry-page/sorry-page.component';
+import { InstructionsPageComponent } from './instructions-page/instructions-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SorryPageComponent } from './sorry-page/sorry-page.component';
     SharerLikertsComponent,
     RecipientLikertsComponent,
     ThanksPageComponent,
-    SorryPageComponent
+    SorryPageComponent,
+    InstructionsPageComponent
   ],
   imports: [
     BrowserModule,

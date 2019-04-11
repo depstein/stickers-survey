@@ -20,7 +20,7 @@ export class ConsentPageComponent implements OnInit {
 
   onSubmit(selectForm:NgForm) {
     if(this.ageCheck && this.snapCheck && this.consentCheck) {
-      this.router.navigate(['survey']);
+      this.router.navigate(['instructions']);
     } else {
       //They did not consent, are not old enough, or do not use Snapchat enough
       this.router.navigate(['sorry']);

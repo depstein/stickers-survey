@@ -1,0 +1,23 @@
+<p>
+	In this survey, you will be asked to rate and evaluate <strong>{{this.userService.stickers.length}}</strong> Snaps which you could see on Snapchat. Each Snap includes a sticker related to <strong>{{this.userService.domain}}</strong> and an image or text which explains the scene.
+</p>
+<p>
+	As you are rating each Snap, imagine you are <strong>{{this.userService.role == "sharer" ? "sending" : "receiving"}}</strong> it {{this.userService.role == "sharer" ? "to" : "from"}} a close friend or family member.
+</p>
+<p>
+	You will be asked a few demographic questions at the end of the survey. After this, you will be given a confirmation code to use on Amazon Mechanical Turk.
+</p>
+<p>
+	There are no "right" or "wrong" answers in this survey. Please answer as honestly as possible.
+</p>
+<form #instructionsForm="ngForm" (ngSubmit)="submit(instructionsForm)">
+	<div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" name="understandCheck" type="checkbox" value="" [ngClass]=understandValid [(ngModel)]=understandCheck id="understandCheck">
+      <label class="form-check-label" for="understandCheck">
+        I understand
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Next</button>
+</form>
