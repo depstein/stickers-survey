@@ -8,16 +8,26 @@ import { Condition } from '../condition';
 })
 export class StickerComponent implements OnInit {
 	//TODO: remove me!!!
-	static GeneratedSoFar = {'Activity':2, 'Music': 1};
+	static readonly GeneratedSoFar = {'activity':2, 'music': 1};
+  // [presentation][condition][style]
+  static readonly BackgroundMap = {
+    'plain': {'low':{0:'microbial', 1:'arrows', 2:'zigzag'}, 'high':{0:'weave', 1:'upholstery', 2:'rainbow'}},
+    'chartjunk': {'low':{0:'steps', 1:'waves', 2:'stars'}, 'high':{0:'bradybunch', 1:'shippo', 2:'bricks'}},
+    'analogy': {'low':{0:'tartan', 1:'madras', 2:'blueprint'}, 'high':{0:'cicada', 1:'honeycomb', 2:'pyramid'}}
+  }
 	@Input() condition:Condition;
   @ViewChild('stickerCanvas') canvas:ElementRef;
-  canvasWidth:number = 300;
-  canvasHeight:number = 600;
+  ratio = window.devicePixelRatio || 1;
+  canvasWidth:number = 300 * this.ratio;
+  canvasHeight:number = 600 * this.ratio;
+  canvasBackground:string;
   context:CanvasRenderingContext2D;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.canvasBackground = StickerComponent.BackgroundMap[this.condition.presentation][this.condition.aggregation][this.condition.style];
   }
 
   ngAfterViewInit() {
@@ -31,7 +41,7 @@ export class StickerComponent implements OnInit {
 
   drawEverything() {
     if(this.context) {
-      this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+      this.resetCanvas();
       this.drawBackground().then(() => {
         this.drawScenario().then(() => {
           this.drawSticker();
@@ -40,14 +50,16 @@ export class StickerComponent implements OnInit {
     }
   }
 
+  resetCanvas() {
+    this.context.setTransform(this.ratio, 0, 0, this.ratio, 0, 0);
+    this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+  }
+
   //Image onload is async, so use a promise so the background is always drawn first.
   drawBackground():Promise<void> {
     return new Promise((resolve, reject) => {
       if(this.condition.context == "no") {
-        //Draw funny lines as the background
-        //TODO: draw lines dynamically based on the data type, etc.
-        this.context.fillStyle = "#FF0000";
-        this.context.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
+        //Nothing to do here, the canvas background will take care of it.
         resolve();
       } else {
         //Draw an image as the background
@@ -64,13 +76,15 @@ export class StickerComponent implements OnInit {
 
   //Image onload is async, so use a promise so the background is always drawn first.
   drawScenario():Promise<void> {
-    this.context.globalAlpha = 0.8;
+    this.context.globalAlpha = 0.75;
     this.context.fillStyle = "#000000";
-    this.context.fillRect(0, this.canvasHeight/2, this.canvasWidth, 40);
+    this.context.fillRect(0, this.canvasHeight/(2*this.ratio), this.canvasWidth/this.ratio, 25);
     this.context.globalAlpha = 1;
-    this.context.font = "40px Arial";
+    this.context.textAlign = "center";
+    this.context.font = "19px Arial";
     this.context.fillStyle = "#FFFFFF";
-    this.context.fillText("Scenario " + this.condition.scenario, 0, this.canvasHeight/2 + 40, this.canvasWidth);
+    this.context.fillText("Scenario " + this.condition.scenario, this.canvasWidth/(2*this.ratio), this.canvasHeight/(2*this.ratio) + 20, this.canvasWidth/this.ratio);
+    this.context.textAlign = "left";
     return Promise.resolve();
   }
 
