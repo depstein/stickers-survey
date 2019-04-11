@@ -1,23 +1,23 @@
 <div class="row">
-	<div class="col">
+	<div class="col-4">
 		<h2>Sticker {{userService.stickerIndex + 1}} of 6</h2>
 	</div>
-	<div class="col">
-		<!--TODO: remove me!-->
-		<a role="button" class="btn btn-primary"(click)="resetUser()">reset</a>
+	<div class="col-8">
 	</div>
 </div>
 <form #surveyForm="ngForm" (ngSubmit)="nextSticker(surveyForm)">
 	<div class="row">
-		<div class="col">
+		<div class="col-4">
 			<app-sticker [condition]=userService.currentSticker></app-sticker>
 		</div>
-		<div class="col">
+		<div class="col-8">
 			<app-sharer-likerts #sharerLikerts *ngIf="this.userService.role == 'sharer'"></app-sharer-likerts>
 			<app-recipient-likerts #recipientLikerts *ngIf="this.userService.role == 'recipient'"></app-recipient-likerts>
 		</div>
 	</div>
 	<div class="row">
-		<button type="submit" class="btn btn-primary">Next</button>
+		<div class="col-4">
+			<button type="submit" class="btn btn-primary">Next</button>
+		</div>
 	</div>
 </form>

@@ -1,7 +1,15 @@
 .is-invalid {
-	color: red;
+	color: #F57A00;
 }
 
 .is-valid {
-	color: green;
+	color: #22B24C;
+}
+
+.likert {
+	padding-bottom: 10px;
+}
+
+.label {
+	font-weight: bolder;
 }

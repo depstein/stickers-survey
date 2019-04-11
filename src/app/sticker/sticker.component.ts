@@ -18,7 +18,7 @@ export class StickerComponent implements OnInit {
 	@Input() condition:Condition;
   @ViewChild('stickerCanvas') canvas:ElementRef;
   ratio = window.devicePixelRatio || 1;
-  canvasWidth:number = 300 * this.ratio;
+  canvasWidth:number = 277 * this.ratio;
   canvasHeight:number = 600 * this.ratio;
   canvasBackground:string;
   context:CanvasRenderingContext2D;

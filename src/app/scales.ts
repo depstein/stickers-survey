@@ -1,23 +1,23 @@
 export class Scales {
-	//I find this Snap fun to send/receive. (Xu)
+	//I find this Snap fun to send/receive. (Xu 2009)
 	fun_ENT:number;
-	//I find this Snap exciting to send/receive. (Xu)
+	//I find this Snap exciting to send/receive. (Xu 2009)
 	exciting_ENT:number;
-	//I learn a lot about my close friend or family member from this Snap. (Lee)
+	//I learn a lot about my close friend or family member from this Snap. (Lee 2016)
 	learn_INF:number;
-	//I think the information obtained about my close friend or family member from this Snap is helpful. (Lee)
+	//I think the information obtained about my close friend or family member from this Snap is helpful. (Lee 2016)
 	helpful_INF:number;
-	//I trust Snapchat with the information I included in this Snap. (loosely inspired by https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1849&context=amcis2007)
-	trust_PRIV:number;
-	//I believe that Snapchat would protect the information I included in this Snap. (loosely inspired by https://aisel.aisnet.org/cgi/viewcontent.cgi?article=1849&context=amcis2007)
-	protect_PRIV:number;
-	//I am inclined to send this Snap/respond to this Snap. (Lee)
+	//I think my benefits I would gain from sending this Snap would offset the risks of my information disclosure. (Xu 2011)
+	benefits_PRIV:number;
+	//The value I would gain from sending this Snap is worth the information I would give away. (Xu 2011)
+	value_PRIV:number;
+	//I am inclined to send this Snap/respond to this Snap. (Lee 2016)
 	inclined_USE:number;
-	//I might send this Snap/respond to this Snap. (Lee)
+	//I might send this Snap/respond to this Snap. (Lee 2016)
 	might_USE:number;
-	//I feel good about sending this Snap/responding to this Snap. (Lee)
+	//I feel good about sending this Snap/responding to this Snap. (Lee 2016)
 	good_ATT:number;
-	//I feel positive about sending this Snap/responding to this Snap. (Lee)
+	//I feel positive about sending this Snap/responding to this Snap. (Lee 2016)
 	positive_ATT:number;
 
 	//reaction, more qualitative

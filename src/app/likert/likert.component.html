@@ -1,6 +1,8 @@
-<div class="form-check form-check-inline">
-	<p>{{label}}</p>
-    <label class="form-check-input position-static" [ngClass]="valid === true ? 'is-valid' : (valid === false) ? 'is-invalid' : ''" for="{{name}}_1">{{ low }}</label>
-    <input *ngFor="let v of values" class="form-check-input position-static" type="radio" name="{{name}}" id="{{name}}_{{v}}" [value]=v [(ngModel)]=selected (change)="onChange()"/>
-    <label class="form-check-input position-static" [ngClass]="valid === true ? 'is-valid' : (valid === false) ? 'is-invalid' : ''" for="{{name}}_{{points}}">{{ high }}</label>
+<div class="form-check form-check-inline row likert">
+	<div class="col-12 label">{{label}}</div>
+	<div class="col-12">
+	    <label class="form-check-input position-static" [ngClass]="valid === true ? 'is-valid' : (valid === false) ? 'is-invalid' : ''" for="{{name}}_1">{{ low }}</label>
+	    <input *ngFor="let v of values" class="form-check-input position-static" type="radio" name="{{name}}" id="{{name}}_{{v}}" [value]=v [(ngModel)]=selected (change)="onChange()"/>
+	    <label class="form-check-input position-static" [ngClass]="valid === true ? 'is-valid' : (valid === false) ? 'is-invalid' : ''" for="{{name}}_{{points}}">{{ high }}</label>
+	</div>
 </div>
