@@ -10,8 +10,8 @@ import {Scales} from '../scales';
 export class SharerLikertsComponent implements OnInit {
   @ViewChild('fun_ENT') funEl:LikertComponent;
   @ViewChild('exciting_ENT') excitingEl:LikertComponent;
-  @ViewChild('trust_PRIV') trustEl:LikertComponent;
-  @ViewChild('protect_PRIV') protectEl:LikertComponent;
+  @ViewChild('benefits_PRIV') benefitsEl:LikertComponent;
+  @ViewChild('value_PRIV') valueEl:LikertComponent;
   @ViewChild('inclined_USE') inclinedEl:LikertComponent;
   @ViewChild('might_USE') mightEl:LikertComponent;
   @ViewChild('good_ATT') goodEl:LikertComponent;
@@ -29,8 +29,8 @@ export class SharerLikertsComponent implements OnInit {
   ngAfterViewInit() {
     this.likerts.push(this.funEl);
     this.likerts.push(this.excitingEl);
-    this.likerts.push(this.trustEl);
-    this.likerts.push(this.protectEl);
+    this.likerts.push(this.benefitsEl);
+    this.likerts.push(this.valueEl);
     this.likerts.push(this.inclinedEl);
     this.likerts.push(this.mightEl);
     this.likerts.push(this.goodEl);
