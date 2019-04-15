@@ -19,5 +19,8 @@
 		<div class="col-4">
 			<button type="submit" class="btn btn-primary">Next</button>
 		</div>
+		<div class="col-8" *ngIf="showResetButton()">
+			<button class="btn btn-warning" (click)="resetUser()">Reset</button>
+		</div>
 	</div>
 </form>

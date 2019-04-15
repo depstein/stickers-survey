@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, isDevMode } from '@angular/core';
 import { UserService } from '../user.service';
 import { FirebaseService } from '../firebase.service';
 import {Router} from "@angular/router";
@@ -65,6 +65,10 @@ export class SurveyPageComponent implements OnInit {
   resetUser() {
   	this.userService.reset();
     this.resetLikerts();
+  }
+
+  showResetButton() {
+    return isDevMode();
   }
 
 }
