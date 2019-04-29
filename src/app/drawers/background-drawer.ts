@@ -12,15 +12,17 @@ export class BackgroundDrawer {
 	condition:Condition;
 	canvasWidth:number;
 	canvasHeight:number;
+	ratio:number;
 
-	constructor(condition:Condition, canvasWidth:number, canvasHeight:number) {
+	constructor(condition:Condition, canvasWidth:number, canvasHeight:number, ratio:number) {
 		this.condition = condition;
 		this.canvasWidth = canvasWidth;
 		this.canvasHeight = canvasHeight;
+		this.ratio = ratio;
 	}
 
 	get backgroundStr():string {
-		return BackgroundDrawer.BackgroundMap[this.condition.presentation][this.condition.relevance][this.condition.style];
+		return BackgroundDrawer.BackgroundMap[this.condition.presentation][this.condition.relevance][this.condition.scenario];
 	}
 
 	drawBackground():Promise<void> {
@@ -32,9 +34,9 @@ export class BackgroundDrawer {
 	        //Draw an image as the background
 	        //TODO: load image dynamically based on the scenario
 	        let image = new Image();
-	        image.src = 'assets/background.jpg';
+	        image.src = 'assets/' + this.condition.domain + '/background_' + this.condition.scenario  + '.jpg';
 	        image.onload = () => {
-	          this.context.drawImage(image, 0, 0, this.canvasWidth, this.canvasHeight);
+	          this.context.drawImage(image, 0, 0, this.canvasWidth / this.ratio, this.canvasHeight / this.ratio);
 	          resolve();
 	        }
 	      }

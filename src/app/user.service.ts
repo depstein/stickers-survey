@@ -10,7 +10,7 @@ import { Condition } from './condition';
 export class UserService {
   static readonly ROLES:string[] = ['sharer', 'recipient'];
   //static readonly DOMAINS:string[] = ['activity', 'time', 'music', 'food', 'heartrate'];
-  static readonly DOMAINS:string[] = ['activity'];
+  static readonly DOMAINS:string[] = ['heartrate'];
 	@LocalStorage() uid:string = generate();
 	@LocalStorage() role:string = undefined;
 	@LocalStorage() domain:string = undefined;
@@ -38,10 +38,13 @@ export class UserService {
   	this.stickers = [];
   	//var presentations = this.shuffle([{p: 'chartjunk', r: 'no'}, {p: 'chartjunk', r: 'yes'}, {p: 'plain', r: 'no'}, {p: 'plain', r: 'yes'}, {p: 'analogy', r: 'no'}, {p: 'analogy', r: 'yes'}]);
     var presentations = this.shuffle([{p: 'plain', r: 'no'}, {p: 'plain', r: 'yes'}, {p: 'plain', r: 'no'}, {p: 'plain', r: 'yes'}, {p: 'plain', r: 'no'}, {p: 'plain', r: 'yes'}]);
-  	var contexts = this.shuffle(['no', 'no', 'no', 'yes', 'yes', 'yes']);
+  	//var contexts = this.shuffle(['no', 'no', 'no', 'yes', 'yes', 'yes']);
+    var contexts = this.shuffle(['no', 'no', 'no', 'no', 'no', 'no']);
   	//TODO: in analysis, remember that scenarios are domain-dependent and styles are domain- and aggregation-dependent.
-  	var scenarios = this.shuffle([0, 0, 1, 1, 2, 2]);
-  	var styles = this.shuffle([this.upTo(3), this.upTo(3), this.upTo(3), this.upTo(3), this.upTo(3), this.upTo(3)]);
+  	//var scenarios = this.shuffle([0, 0, 1, 1, 2, 2]);
+    var scenarios = this.shuffle([0, 0, 0, 0, 0, 0]);
+  	//var styles = this.shuffle([this.upTo(3), this.upTo(3), this.upTo(3), this.upTo(3), this.upTo(3), this.upTo(3)]);
+    var styles = this.shuffle([0, 0, 0, 0, 0, 0]);
   	for(var i=0;i<6;i++) {
   		this.stickers.push(new Condition(presentations[i]['p'], presentations[i]['r'], contexts[i], scenarios[i], styles[i], this.domain, this.role));
   	}
