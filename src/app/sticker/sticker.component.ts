@@ -27,10 +27,7 @@ export class StickerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.background = new BackgroundDrawer(this.condition, this.canvasWidth, this.canvasHeight, this.ratio);
-    this.caption = new CaptionDrawer(this.condition, this.canvasWidth, this.canvasHeight, this.ratio);
-    this.sticker = new StickerDrawer(this.condition, this.canvasWidth, this.canvasHeight, this.ratio);
-    this.canvasBackground = this.background.backgroundStr;
+    this.initializeDrawers();
   }
 
   ngAfterViewInit() {
@@ -42,6 +39,7 @@ export class StickerComponent implements OnInit {
   }
 
   ngOnChanges() {
+    this.initializeDrawers();
     this.drawEverything();
   }
 
@@ -56,6 +54,16 @@ export class StickerComponent implements OnInit {
         });
       });
     }
+  }
+
+  initializeDrawers() {
+    this.background = new BackgroundDrawer(this.condition, this.canvasWidth, this.canvasHeight, this.ratio);
+    this.caption = new CaptionDrawer(this.condition, this.canvasWidth, this.canvasHeight, this.ratio);
+    this.sticker = new StickerDrawer(this.condition, this.canvasWidth, this.canvasHeight, this.ratio);
+    this.canvasBackground = this.background.backgroundStr;
+    this.sticker.context = this.context;
+    this.background.context = this.context;
+    this.caption.context = this.context;
   }
 
   resetTransform() {

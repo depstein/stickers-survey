@@ -8,7 +8,11 @@ export class CaptionDrawer {
 	ratio:number;
 
 	static readonly ScenarioTextMap = {
-		'heartrate': ['Nervous, about to\ngive my speech...', 'Getting in\na workout! 🏃‍♀️', 'Had to run\nfor the bus 😫']
+		'heartrate': ['Nervous, about to\ngive my speech...', 'Getting in\na workout! 🏃‍♀️', 'Had to run\nfor the bus 😫'],
+		'activity': ['A nice day\nfor hiking! ⛰️', 'Getting in\na workout! 🏃‍♀️', 'Strolling through\nthe park'],
+		'music': ['TKTK', 'TKTK', 'TKTK'],
+		'time': ['TKTK', 'TKTK', 'TKTK'],
+		'food': ['TKTK', 'TKTK', 'TKTK']
 	}
 
 	constructor(condition:Condition, canvasWidth:number, canvasHeight:number, ratio:number) {
@@ -41,7 +45,7 @@ export class CaptionDrawer {
 					this.context.shadowColor = '#000000';
 					this.context.shadowBlur = 5;
 					this.context.fillStyle = '#000000';
-					//Write it 3 times down and to the right to create a dropshadow...
+					//Write it 5 times down and to the right to create a dropshadow...
 					for(var a=0;a<5;a++) {
 						this.context.fillText(v, xPosition + (maxWidth - textWidth)/2 + a, yPosition + fontSize/3 + buffer + (fontSize + 1 + 1.5*buffer)* i + a);
 					}
