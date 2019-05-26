@@ -5,6 +5,7 @@ export class Demographics {
 	months:string;
 	friends:string;
 	weekly:string;
+	feedback:string;
 
 	constructor() {
 	}

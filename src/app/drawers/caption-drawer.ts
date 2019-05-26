@@ -9,7 +9,7 @@ export class CaptionDrawer {
 
 	static readonly ScenarioTextMap = {
 		'heartrate': ['Nervous, about to\ngive my speech...', 'Getting in\na workout! 🏃‍♀️', 'Had to run\nfor the bus 😫'],
-		'activity': ['A nice day\nfor hiking! ⛰️', 'Getting in\na workout! 🏃‍♀️', 'Strolling through\nthe park'],
+		'steps': ['A nice day\nfor hiking! ⛰️', 'Getting in\na workout! 🏃‍♀️', 'Strolling through\nthe park'],
 		'music': ['TKTK', 'TKTK', 'TKTK'],
 		'time': ['TKTK', 'TKTK', 'TKTK'],
 		'food': ['TKTK', 'TKTK', 'TKTK']
