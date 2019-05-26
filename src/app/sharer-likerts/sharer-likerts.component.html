@@ -7,6 +7,6 @@
 <app-likert #good_ATT label="I would feel good about sending this Snap." name="good_ATT" [(selected)]=scales.good_ATT></app-likert>
 <app-likert #positive_ATT label="I would feel positive about sending this Snap." name="positive_ATT" [(selected)]=scales.positive_ATT></app-likert>
 <div class="form-group">
-	<label for="reactionTextArea">How would you feel about sharing this Snap?</label>
+	<label for="reactionTextArea">How would you feel about sharing this Snap? <small>(min {{minCharacters}} characters)</small></label>
 	<textarea class="form-control" [ngClass]=reactionValid id="reactionTextArea" [(ngModel)]=scales.reaction rows="3"></textarea>
 </div>

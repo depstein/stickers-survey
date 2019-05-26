@@ -11,7 +11,7 @@ import {Demographics} from '../demographics';
   styleUrls: ['./demographics-page.component.css']
 })
 export class DemographicsPageComponent implements OnInit {
-	private demographics:Demographics = new Demographics();
+	public demographics:Demographics = new Demographics();
 	
 
   constructor(private router:Router, private userService:UserService, private firebaseService:FirebaseService) {

@@ -3,9 +3,9 @@ import { Condition } from '../condition';
 export class BackgroundDrawer {
 	// [presentation][condition][style]
 	  static readonly BackgroundMap = {
-	    'plain': {'no':{0:'microbial', 1:'arrows', 2:'zigzag'}, 'yes':{0:'weave', 1:'upholstery', 2:'rainbow'}},
-	    'chartjunk': {'no':{0:'steps', 1:'waves', 2:'stars'}, 'yes':{0:'bradybunch', 1:'shippo', 2:'bricks'}},
-	    'analogy': {'no':{0:'tartan', 1:'madras', 2:'blueprint'}, 'yes':{0:'cicada', 1:'honeycomb', 2:'pyramid'}}
+	    'plain': {0:'microbial', 1:'arrows', 2:'weave'},
+	    'chartjunk': {0:'waves', 1:'argyle', 2:'cicada'},
+	    'analogy': {0:'tartan', 1:'madras', 2:'blueprint'}
 	  }
 
 	context:CanvasRenderingContext2D;
@@ -22,7 +22,7 @@ export class BackgroundDrawer {
 	}
 
 	get backgroundStr():string {
-		return BackgroundDrawer.BackgroundMap[this.condition.presentation][this.condition.relevance][this.condition.scenario];
+		return BackgroundDrawer.BackgroundMap[this.condition.presentation][this.condition.scenario];
 	}
 
 	drawBackground():Promise<void> {

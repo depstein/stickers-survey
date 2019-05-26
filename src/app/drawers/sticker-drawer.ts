@@ -22,19 +22,19 @@ export class StickerDrawer {
 		    image.onload = () => {
 		      	let xPosition = 100;
 		      	let yPosition = 100;
-		      	let width = 120;
+		      	let maxDim = 150;
 		      	switch(this.condition.context) {
 		      		case "yes":
 		      			//smaller sticker, position slightly differently in each scenario
 		      			//All stickers are delicately positioned relative to their rotation...
 		      			switch(this.condition.scenario) {
 		      				case 0:
-		      				xPosition = 70;
+		      				xPosition = 90;
 		      				yPosition = 0;
 		      				this.context.rotate(30 * Math.PI / 180);
 		      				break;
 		      				case 1:
-		      				xPosition = 80;
+		      				xPosition = 40;
 		      				yPosition = 320;
 		      				this.context.rotate(-10 * Math.PI / 180);
 		      				break;
@@ -47,12 +47,21 @@ export class StickerDrawer {
 		      		break;
 		      		case "no":
 		      			//Sticker should be larger, centered horizontally and vertically
-		      			width = 200;
-		      			xPosition = this.canvasWidth/(2*this.ratio) - width/2;
-		      			yPosition = this.canvasHeight/(2*this.ratio) - (width*image.naturalHeight/image.naturalWidth)/2;
+		      			maxDim = 250;
+		      			if(image.naturalWidth >= image.naturalHeight) {
+		      				xPosition = this.canvasWidth/(2*this.ratio) - maxDim/2;
+		      				yPosition = this.canvasHeight/(2*this.ratio) - (maxDim*image.naturalHeight/image.naturalWidth)/2;
+		      			} else {
+		      				xPosition = this.canvasWidth/(2*this.ratio) - (maxDim*image.naturalWidth/image.naturalHeight)/2;
+		      				yPosition = this.canvasHeight/(2*this.ratio) - maxDim/2;
+		      			}
 		      		break;
 		      	}
-		        this.context.drawImage(image, xPosition, yPosition, width, width*image.naturalHeight/image.naturalWidth);
+		      	if(image.naturalWidth >= image.naturalHeight) {
+		      		this.context.drawImage(image, xPosition, yPosition, maxDim, maxDim*image.naturalHeight/image.naturalWidth);
+		      	} else {
+					this.context.drawImage(image, xPosition, yPosition, maxDim*image.naturalWidth/image.naturalHeight, maxDim);	
+		      	}
 		        resolve();
 	      	}
 	    });

@@ -9,6 +9,15 @@
 	<div class="row">
 		<div class="col-4">
 			<app-sticker [condition]=userService.currentSticker></app-sticker>
+				<p *ngIf="dev">
+					{{userService.currentSticker.presentation}}
+					{{userService.currentSticker.relevance}}
+					{{userService.currentSticker.context}}
+					{{userService.currentSticker.scenario}}
+					{{userService.currentSticker.style}}
+					{{userService.currentSticker.domain}}
+					{{userService.currentSticker.role}}
+				</p>
 		</div>
 		<div class="col-8">
 			<app-sharer-likerts #sharerLikerts *ngIf="this.userService.role == 'sharer'"></app-sharer-likerts>
@@ -16,11 +25,11 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-4">
-			<button type="submit" class="btn btn-primary">Next</button>
+		<div class="col-4" *ngIf="dev">
+			<button class="btn btn-warning" (click)="resetUser()">Reset</button>
 		</div>
 		<div class="col-8" *ngIf="showResetButton()">
-			<button class="btn btn-warning" (click)="resetUser()">Reset</button>
+			<button type="submit" class="btn btn-primary">Next</button>
 		</div>
 	</div>
 </form>

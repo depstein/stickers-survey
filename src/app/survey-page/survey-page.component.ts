@@ -16,12 +16,16 @@ export class SurveyPageComponent implements OnInit {
   @ViewChild('sharerLikerts') sharerLikerts:SharerLikertsComponent;
   @ViewChild('recipientLikerts') recipientLikerts:RecipientLikertsComponent;
   
-  constructor(private router:Router, private userService:UserService, private firebaseService:FirebaseService) { }
+  constructor(private router:Router, public userService:UserService, private firebaseService:FirebaseService) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
+  }
+
+  dev():boolean {
+    return isDevMode();
   }
 
   nextSticker(surveyForm:NgForm) {

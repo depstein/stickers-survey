@@ -48,9 +48,9 @@ export class StickerComponent implements OnInit {
       this.resetCanvas();
       this.background.drawBackground().then(() => {
         this.resetTransform();
-        this.caption.drawCaption().then(() => {
+        this.sticker.drawSticker().then(() => {
           this.resetTransform();
-          this.sticker.drawSticker();
+          this.caption.drawCaption();
         });
       });
     }

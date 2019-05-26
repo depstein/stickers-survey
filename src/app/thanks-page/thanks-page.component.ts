@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
 })
 export class ThanksPageComponent implements OnInit {
 
-  constructor(private userService:UserService) {
+  constructor(public userService:UserService) {
   	
   }
 

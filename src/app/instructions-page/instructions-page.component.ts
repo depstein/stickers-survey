@@ -12,7 +12,7 @@ export class InstructionsPageComponent implements OnInit {
 	understandCheck:boolean;
 	understandValid:string;
 
-  constructor(private router:Router, private userService:UserService) { }
+  constructor(private router:Router, public userService:UserService) { }
 
   ngOnInit() {
   }
