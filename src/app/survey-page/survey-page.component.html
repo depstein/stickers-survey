@@ -9,7 +9,7 @@
 	<div class="row">
 		<div class="col-4">
 			<app-sticker [condition]=userService.currentSticker></app-sticker>
-				<p *ngIf="dev">
+				<p *ngIf="inDevMode">
 					{{userService.currentSticker.presentation}}
 					{{userService.currentSticker.relevance}}
 					{{userService.currentSticker.context}}
@@ -25,10 +25,10 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-4" *ngIf="dev">
+		<div class="col-4" *ngIf="inDevMode">
 			<button class="btn btn-warning" (click)="resetUser()">Reset</button>
 		</div>
-		<div class="col-8" *ngIf="showResetButton()">
+		<div class="col-8">
 			<button type="submit" class="btn btn-primary">Next</button>
 		</div>
 	</div>

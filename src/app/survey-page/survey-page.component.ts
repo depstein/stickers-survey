@@ -15,17 +15,15 @@ import {RecipientLikertsComponent} from '../recipient-likerts/recipient-likerts.
 export class SurveyPageComponent implements OnInit {
   @ViewChild('sharerLikerts') sharerLikerts:SharerLikertsComponent;
   @ViewChild('recipientLikerts') recipientLikerts:RecipientLikertsComponent;
+  inDevMode:boolean = true;
   
   constructor(private router:Router, public userService:UserService, private firebaseService:FirebaseService) { }
 
   ngOnInit() {
+    this.inDevMode = isDevMode();
   }
 
   ngAfterViewInit() {
-  }
-
-  dev():boolean {
-    return isDevMode();
   }
 
   nextSticker(surveyForm:NgForm) {
@@ -69,10 +67,6 @@ export class SurveyPageComponent implements OnInit {
   resetUser() {
   	this.userService.reset();
     this.resetLikerts();
-  }
-
-  showResetButton() {
-    return isDevMode();
   }
 
 }
