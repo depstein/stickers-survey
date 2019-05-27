@@ -1,3 +1,7 @@
 label {
 	font-weight: bolder;
 }
+
+label > small {
+	color: #888888;
+}

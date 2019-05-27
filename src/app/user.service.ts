@@ -21,8 +21,8 @@ export class UserService {
   constructor() {
   	//To ensure the same stickers are always selected, seed the rng according to the User ID
   	this.rng = alea(this.uid);
-  	this.selectStickers();
     this.selectDomainAndRole();
+  	this.selectStickers();
   }
 
   get currentSticker():Condition {
@@ -56,8 +56,8 @@ export class UserService {
   	//Nose that this just resets the survey to the beginning... I think that's what I want for now.
   	//To ensure the same stickers are always selected, seed the rng according to the User ID
   	this.rng = alea(this.uid);
-  	this.selectStickers();
-    this.selectDomainAndRole();
+  	this.selectDomainAndRole();
+    this.selectStickers();
   	this.stickerIndex = 0;
   }
 

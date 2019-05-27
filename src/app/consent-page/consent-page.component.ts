@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import { UserService } from '../user.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-consent-page',
@@ -12,10 +13,12 @@ export class ConsentPageComponent implements OnInit {
   ageCheck:boolean;
   snapCheck:boolean;
   consentCheck:boolean;
+  mturk:boolean = true;
 
   constructor(private router:Router, private userService:UserService) { }
 
   ngOnInit() {
+    this.mturk = environment.mturk;
   }
 
   onSubmit(selectForm:NgForm) {

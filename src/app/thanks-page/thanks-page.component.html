@@ -1,3 +1,6 @@
-<p>
+<p *ngIf="mturk">
   Thank you for participating in the study. Please paste the confirmation code <strong>{{userService.uid}}</strong> into the dialog box on Amazon Mechanical Turk.
+</p>
+<p *ngIf="!mturk">
+  Thank you for participating in the study. Please let the researchers know if you have any additional feedback on the survey.
 </p>

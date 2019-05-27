@@ -1,14 +1,17 @@
 <p>
-	In this survey, you will be asked to rate <strong>{{this.userService.stickers.length}}</strong> Snaps which you could see on Snapchat. Each Snap will be related to <strong>{{this.userService.domain}}</strong>.
+	In this survey, you will be asked to rate <strong>{{this.userService.stickers.length}}</strong> Snaps which contain stickers showing a person's <strong>{{this.userService.domain}}</strong>.
 </p>
 <p>
 	As you are rating each Snap, imagine you are <strong>{{this.userService.role == "sharer" ? "sending" : "receiving"}}</strong> it {{this.userService.role == "sharer" ? "to" : "from"}} a close friend or family member.
 </p>
-<p>
+<p *ngIf="mturk">
 	You will be asked a few demographic questions at the end of the survey. After this, you will be given a confirmation code to use on Amazon Mechanical Turk.
 </p>
+<p *ngIf="!mturk">
+  You will be asked a few demographic questions at the end of the survey.
+</p>
 <p>
-	There are no "right" or "wrong" answers in this survey. Please answer as honestly as possible.
+	There are no "right" or "wrong" answers in this survey. <strong>Please answer as honestly as possible</strong>.
 </p>
 <form #instructionsForm="ngForm" (ngSubmit)="submit(instructionsForm)">
 	<div class="form-group">

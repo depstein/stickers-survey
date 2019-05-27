@@ -8,6 +8,7 @@ import {Scales} from '../scales';
   styleUrls: ['./recipient-likerts.component.css']
 })
 export class RecipientLikertsComponent implements OnInit {
+  minCharacters:number = 30;
   @ViewChild('fun_ENT') funEl:LikertComponent;
   @ViewChild('exciting_ENT') excitingEl:LikertComponent;
   @ViewChild('learn_INF') learnEl:LikertComponent;
@@ -43,8 +44,8 @@ export class RecipientLikertsComponent implements OnInit {
       l.checkValid();
     });
     //Check reaction manually, since it's not in a scale
-    this.reactionValid = this.scales.reaction ? 'is-valid' : 'is-invalid';
-    return this.likerts.every(l => l.valid);
+    this.reactionValid = (this.scales.reaction && this.scales.reaction.length >= this.minCharacters) ? 'is-valid' : 'is-invalid';
+    return this.likerts.every(l => l.valid) && this.reactionValid == 'is-valid';
   }
 
   reset() {
