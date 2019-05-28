@@ -44,7 +44,7 @@ export class UserService {
   	var styles = this.shuffle([this.upTo(3), this.upTo(3), this.upTo(3), this.upTo(3), this.upTo(3), this.upTo(3)]);
     //var styles = this.shuffle([0, 0, 1, 1, 2, 2]);
   	for(var i=0;i<6;i++) {
-  		this.stickers.push(new Condition(presentations[i]['p'], presentations[i]['r'], contexts[i]['c'], contexts[i]['s'], styles[i], this.domain, this.role));
+  		this.stickers.push(new Condition(presentations[i]['p'], presentations[i]['r'], contexts[i]['c'], contexts[i]['s'], styles[i], this.domain, this.role, i+1));
   	}
   }
 

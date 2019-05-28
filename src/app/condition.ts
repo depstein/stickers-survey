@@ -16,8 +16,10 @@ export class Condition {
 	domain:string;
 	// role the participant is taking in the survey. sharer or recipient
 	role:string;
+	// which sticker, out of N, this sticker is
+	order:number;
 
-	constructor(presentation, relevance, context, scenario, style, domain, role) {
+	constructor(presentation, relevance, context, scenario, style, domain, role, order) {
 		this.presentation = presentation;
 		this.relevance = relevance;
 		this.context = context;
@@ -25,6 +27,7 @@ export class Condition {
 		this.style = style;
 		this.domain = domain;
 		this.role = role;
+		this.order = order;
 	}
 
 	get value():string {
