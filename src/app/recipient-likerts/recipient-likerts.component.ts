@@ -8,7 +8,7 @@ import {Scales} from '../scales';
   styleUrls: ['./recipient-likerts.component.css']
 })
 export class RecipientLikertsComponent implements OnInit {
-  minCharacters:number = 30;
+  minCharacters:number = 20;
   @ViewChild('fun_ENT') funEl:LikertComponent;
   @ViewChild('exciting_ENT') excitingEl:LikertComponent;
   @ViewChild('learn_INF') learnEl:LikertComponent;

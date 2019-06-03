@@ -2,7 +2,11 @@
 	In this survey, you will be asked to rate <strong>{{this.userService.stickers.length}}</strong> Snaps which contain stickers showing a person's <strong>{{this.userService.domain}}</strong>.
 </p>
 <p>
-	As you are rating each Snap, imagine you are <strong>{{this.userService.role == "sharer" ? "sending" : "receiving"}}</strong> it {{this.userService.role == "sharer" ? "to" : "from"}} a close friend or family member.
+	Pick one person who you freqently Snap with. What is that person's relationship to you (close friend, family member, etc.)?
+  <input type="text" class="form-control" [ngClass]=personValid name="person" [(ngModel)]=person>
+</p>
+<p>
+  For each Snap in the study, imagine you are <strong>{{this.userService.role == "sharer" ? "sending" : "receiving"}}</strong> it {{this.userService.role == "sharer" ? "to" : "from"}} them.
 </p>
 <p *ngIf="mturk">
 	You will be asked a few demographic questions at the end of the survey. After this, you will be given a confirmation code to use on Amazon Mechanical Turk.

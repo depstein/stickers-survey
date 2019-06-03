@@ -13,6 +13,8 @@ export class InstructionsPageComponent implements OnInit {
 	understandCheck:boolean;
 	understandValid:string;
   mturk:boolean = true;
+  person:string;
+  personValid:string;
 
   constructor(private router:Router, public userService:UserService) { }
 
@@ -21,10 +23,20 @@ export class InstructionsPageComponent implements OnInit {
   }
 
   submit(instructionsForm:NgForm) {
-  	if(this.understandCheck) {
+  	if(this.understandCheck && this.person) {
+      this.userService.person = this.person;
   		this.router.navigate(['survey']);
   	} else {
-  		this.understandValid = 'is-invalid';
+      if(!this.understandCheck) {
+        this.understandValid = 'is-invalid';
+      } else {
+        this.understandValid = 'is-valid';
+      }
+      if(!this.person) {
+        this.personValid = 'is-invalid';
+      } else {
+        this.personValid = 'valid';
+      }
   	}
   }
 

@@ -8,7 +8,7 @@ import {Scales} from '../scales';
   styleUrls: ['./sharer-likerts.component.css']
 })
 export class SharerLikertsComponent implements OnInit {
-  minCharacters:number = 30;
+  minCharacters:number = 20;
   @ViewChild('fun_ENT') funEl:LikertComponent;
   @ViewChild('exciting_ENT') excitingEl:LikertComponent;
   @ViewChild('benefits_PRIV') benefitsEl:LikertComponent;

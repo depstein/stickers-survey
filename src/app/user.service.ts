@@ -16,6 +16,7 @@ export class UserService {
 	@LocalStorage() domain:string = undefined;
 	stickers:Condition[] = [];
 	@LocalStorage() stickerIndex:number = 0;
+  @LocalStorage() person:string = undefined;
 	rng;
 
   constructor() {

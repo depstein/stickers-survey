@@ -21,6 +21,7 @@ export class DemographicsPageComponent implements OnInit {
   }
 
   saveData() {
+    this.demographics.person = this.userService.person;
   	this.firebaseService.addDemographics(this.demographics, this.userService.uid);
   }
 
