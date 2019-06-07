@@ -10,9 +10,9 @@ export class CaptionDrawer {
 	static readonly ScenarioTextMap = {
 		'heartrate': ['Nervous, about to\ngive my speech...', 'Getting in\na workout! 🏃‍♀️', 'Had to run\nfor the bus 😫'],
 		'steps': ['A nice day\nfor hiking! ⛰️', 'Getting in\na workout! 🏃‍♀️', 'Strolling through\nthe park'],
-		'music': ['TKTK', 'TKTK', 'TKTK'],
-		'time': ['TKTK', 'TKTK', 'TKTK'],
-		'food': ['TKTK', 'TKTK', 'TKTK']
+		'music': ['I always need\nmusic to study', '🎶 My new\n workout anthem', 'Making the Monday\ncommute bearable'],
+		'time': ['Been studying\nfor a while...', 'Got everything\npacked up! 🚚', 'Way too many\nmeetings today'],
+		'food': ['Food: the #1\nreason to travel', 'Trying a new\nThai place 🍜', '🧁 Cupcakes are so\nyummmmmmmy 🧁']
 	}
 
 	constructor(condition:Condition, canvasWidth:number, canvasHeight:number, ratio:number) {
@@ -34,7 +34,7 @@ export class CaptionDrawer {
   			//All captions are delicately positioned relative to their rotation...
 			case 0:
 				this.context.rotate(-15 * Math.PI / 180);
-  				xPosition = -80;
+  				xPosition = -110;
   				yPosition = 480;
   				var fontSize = 30;
   				var buffer = 10;
@@ -58,7 +58,7 @@ export class CaptionDrawer {
 				});
 				break;
 			case 1:
-				var xPosition = 80;
+				var xPosition = 60;
   				var yPosition = 20;
   				var fontSize = 30;
   				var buffer = 10;

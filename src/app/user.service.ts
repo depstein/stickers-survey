@@ -38,7 +38,7 @@ export class UserService {
   selectStickers() {
   	this.stickers = [];
   	var presentations = this.shuffle([{p: 'chartjunk', r: 'no'}, {p: 'chartjunk', r: 'yes'}, {p: 'plain', r: 'no'}, {p: 'plain', r: 'yes'}, {p: 'analogy', r: 'no'}, {p: 'analogy', r: 'yes'}]);
-    //var presentations = this.shuffle([{p: 'plain', r: 'yes'}, {p: 'plain', r: 'yes'}, {p: 'plain', r: 'yes'}, {p: 'plain', r: 'yes'}, {p: 'plain', r: 'yes'}, {p: 'plain', r: 'yes'}]);
+    //var presentations = this.shuffle([{p: 'plain', r: 'no'}, {p: 'plain', r: 'no'}, {p: 'plain', r: 'no'}, {p: 'plain', r: 'no'}, {p: 'plain', r: 'no'}, {p: 'plain', r: 'no'}]);
   	var contexts = this.shuffle([{c: 'no', s:0}, {c: 'no', s:1}, {c: 'no', s:2}, {c: 'yes', s:0}, {c: 'yes', s:1}, {c: 'yes', s:2}]);
   	//TODO: in analysis, remember that scenarios are domain-dependent and styles are domain- and aggregation-dependent.
     //var scenarios = this.shuffle([2, 2, 2, 2, 2, 2]);
