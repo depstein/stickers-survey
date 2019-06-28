@@ -9,8 +9,8 @@ import { Condition } from './condition';
 })
 export class UserService {
   static readonly ROLES:string[] = ['sharer', 'recipient'];
-  //static readonly DOMAINS:string[] = ['steps', 'time', 'music', 'food', 'heartrate'];
-  static readonly DOMAINS:string[] = ['steps'];
+  static readonly DOMAINS:string[] = ['steps', 'time', 'music', 'food', 'heartrate'];
+  //static readonly DOMAINS:string[] = ['steps'];
 	@LocalStorage() uid:string = generate();
 	@LocalStorage() role:string = undefined;
 	@LocalStorage() domain:string = undefined;

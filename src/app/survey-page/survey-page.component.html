@@ -10,15 +10,15 @@
 	<div class="row">
 		<div class="col-4">
 			<app-sticker [condition]=userService.currentSticker></app-sticker>
-				<p *ngIf="inDevMode">
-					{{userService.currentSticker.presentation}}
-					{{userService.currentSticker.relevance}}
-					{{userService.currentSticker.context}}
-					{{userService.currentSticker.scenario}}
-					{{userService.currentSticker.style}}
-					{{userService.currentSticker.domain}}
-					{{userService.currentSticker.role}}
-				</p>
+				<ul *ngIf="inDevMode">
+					<li>Presentation: {{userService.currentSticker.presentation}}</li>
+					<li>Relevance: {{userService.currentSticker.relevance}}</li>
+					<li>Context: {{userService.currentSticker.context}}</li>
+					<li>Scenario: {{userService.currentSticker.scenario}}</li>
+					<li>Style: {{userService.currentSticker.style}}</li>
+					<li>Domain: {{userService.currentSticker.domain}}</li>
+					<li>Role: {{userService.currentSticker.role}}</li>
+				</ul>
 		</div>
 		<div class="col-8">
 			<em>Based on this snap, please rate to what level you agree with each of the following statements.</em>
