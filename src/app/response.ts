@@ -13,9 +13,10 @@ export class Response {
 	}
 
 	public getData():object {
-		const result = {'uid': this.uid};
+		const result = {'uid': this.uid, 'sticker': this.condition.stickerString};
 		Object.keys(this.scales).map(key => result[key] = this.scales[key]);
 		Object.keys(this.condition).map(key => result[key] = this.condition[key]);
+		Object.keys(this.scales.allScales).map(key => result[key] = this.scales.allScales[key]);
 		//TODO: check that this works...
 		console.log(result);
 		return result;

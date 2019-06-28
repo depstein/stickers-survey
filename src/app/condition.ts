@@ -37,4 +37,8 @@ export class Condition {
 	get limit():string {
 		return Condition.LIMITS[this.domain];
 	}
+
+	get stickerString():string {
+		return this.domain + '_' + this.presentation + '_' + this.relevance + '_' + this.style;
+	}
 }

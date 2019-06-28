@@ -27,4 +27,28 @@ export class Scales {
 	public Scales() {
 
 	}
+
+	get ENT():number {
+		return this.fun_ENT + this.exciting_ENT;
+	}
+
+	get INF():number {
+		return this.learn_INF + this.helpful_INF;
+	}
+
+	get PRIV():number {
+		return this.benefits_PRIV + this.value_PRIV;
+	}
+
+	get USE():number {
+		return this.inclined_USE + this.might_USE;
+	}
+
+	get ATT():number {
+		return this.positive_ATT + this.good_ATT;
+	}
+
+	get allScales() {
+		return {'ENT':this.ENT, 'INF':this.INF, 'PRIV':this.PRIV, 'USE':this.USE, 'ATT':this.ATT}
+	}
 }
